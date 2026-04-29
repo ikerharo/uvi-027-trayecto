@@ -436,6 +436,29 @@
   .totop { position: fixed; bottom: 24px; right: 24px; width: 42px; height: 42px; background: var(--ink); color: var(--bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-family: var(--mono); font-size: 14px; opacity: 0; pointer-events: none; transition: all 0.25s; z-index: 50; box-shadow: 0 4px 18px rgba(0,0,0,0.18); }
   .totop.visible { opacity: 1; pointer-events: auto; }
   .totop:hover { background: var(--uv); transform: translateY(-2px); }
+
+  /* ───────────────────────────────────────────────────────────
+     LOCAL OVERRIDES · Trayecto UV-027 · pendiente migrar a v6
+     Razón: el shell del template v5 (760px) y la tipografía base
+     se sienten apretados en desktop para un doc que el champion
+     proyecta en sala de juntas. Override mínimo para legibilidad.
+     ─────────────────────────────────────────────────────────── */
+  .shell { max-width: 880px; }
+  .hero .lede { font-size: 19px; line-height: 1.6; }
+  .letter .greet { font-size: 19px; }
+  .letter p { font-size: 18.5px; line-height: 1.65; }
+  .number-block .annot { font-size: 16.5px; line-height: 1.65; }
+  .compo .ch .sub { font-size: 14px; line-height: 1.6; }
+  .case .story p { font-size: 17px; line-height: 1.7; }
+  .case .pivot { font-size: 15.5px; line-height: 1.65; }
+  .method .deck { font-size: 16.5px; line-height: 1.65; }
+  .method .ph p { font-size: 13.5px; line-height: 1.6; }
+  .levers .deck { font-size: 16px; line-height: 1.65; }
+  .levers .feat .lev p { font-size: 13.5px; line-height: 1.6; }
+  .kit-intro p { font-size: 16.5px; line-height: 1.65; }
+  .kit-row-tx, .kit-qa li { font-size: 14px; line-height: 1.6; }
+  .cta-bar p { font-size: 16px; line-height: 1.65; }
+  details.acc .body p { font-size: 14.5px; line-height: 1.65; }
 </style>
 </head>
 <body>
@@ -527,8 +550,8 @@
     <!-- ─── 01 LETTER ─── -->
     <section class="letter" id="sec-letter">
       <p class="greet">Alejandro,</p>
-      <p>Después de la sesión del 17 de abril, <strong>algo de lo que dijiste se nos quedó en la cabeza</strong>: que les encantaría dejar de trabajar en la conciliación de peajes y que las facturas se generen solas con IA, porque su sistema in-house premiado ya recorrió mucho camino, pero le falta la última milla.</p>
-      <p>Ese patrón, en operaciones como la suya, suele <span class="acc">esconder entre 0.5% y 1% del gasto operativo anual</span> en peajes mal conciliados, viáticos sin recuperación de factura, y precio dentro de su lista blanca de combustible. No porque alguien haga las cosas mal: porque <strong>la conciliación a mano y los reclamos mensuales no detectan lo que un cruce vía API en tiempo real sí ve</strong>.</p>
+      <p>Después de la sesión del 17 de abril, <strong>algo de lo que dijiste se nos quedó en la cabeza</strong>: que les encantaría dejar de trabajar en la conciliación y que las facturas se generen solas con IA, porque su sistema in-house premiado ya recorrió mucho camino pero le falta la última milla.</p>
+      <p>Lo que proponemos no es replicar lo que ya tienen. Es <strong>elevar la gestión completa de lo que sucede en TAG a tiempo real</strong>: conciliación automática contra concesionarias, levantamiento de aclaraciones sin intervención manual, recuperación de facturas con IA para cerrar el ciclo. Y para el pequeño porcentaje que sigue en efectivo (las casetas estatales que ustedes mencionan), eliminar también ahí el trabajo manual de captura del ticket y recuperación del comprobante. Cuantificado, hablamos de <span class="acc">entre $30M y $70M MXN al año recuperables</span>, concentrados en su mayor parte en peajes.</p>
       <p>Por eso queremos formalizar la invitación. Lo que sigue es <strong>tu kit para llevar a la siguiente sesión interna</strong> con Rolando y Enrique Ibarra: el rango que estimamos, un caso real comparable, cómo lo haríamos, y qué decir cuando te pregunten "¿y esto cuánto cuesta?". Diseñado para que lo proyectes en una sala de juntas, no para que lo leas tú solo. Es de cortesía, por la presentación de Rubén Hernández y por la alineación estratégica.</p>
       <div class="signature">
         <div class="sig-name">Iker Haro Escandón<small>FOUNDER &amp; CEO · UVICUO</small></div>
@@ -548,12 +571,12 @@
       <div class="lab">EN UNA LÍNEA · LO QUE ESTIMAMOS PARA TRAYECTO</div>
       <div class="big"><span class="light">$</span>30–70<span class="scale">M</span></div>
       <div class="unit">MXN AL AÑO · BASE 5,500 UNIDADES</div>
-      <div class="annot">Equivale a <strong>0.5% a 1% del gasto operativo anual</strong>, distribuido entre las palancas atacables hoy: peajes, viáticos ejecutivos y auditoría dentro de la lista blanca de combustible. El rango es más conservador que el estándar (3–8%) porque <strong>Trayecto ya tiene un sistema in-house maduro</strong> y autoconsumos propios cubren 70–80% del combustible. La cifra exacta se construye con sus datos en el diagnóstico.</div>
+      <div class="annot">Equivale a <strong>0.5% a 1% del gasto operativo anual</strong>, distribuido así: 4–6% sobre el gasto en peajes (que es 8% del OPEX), 3–5% sobre viáticos ejecutivos (2% del OPEX) y 0.5–1% sobre el subset auditable de combustible. El rango total es más conservador que el estándar de la industria (3–8%) porque <strong>Trayecto ya tiene un sistema in-house maduro</strong> y los autoconsumos propios cubren 70–80% del combustible. La cifra exacta se construye con sus datos en el diagnóstico.</div>
 
       <div class="compo">
         <div class="ch">
           <span class="ttl">// Dónde está el dinero recuperable</span>
-          <span class="sub">Cada barra representa el 100% del gasto en esa categoría. La franja verde marca el porcentaje recuperable que estimamos para Trayecto. Las cifras absolutas son estimación basada en el 24% combustible/ingresos que Alejandro confirmó más benchmarks de la industria. Se cierran al revisar tres meses de facturación.</span>
+          <span class="sub">Cada barra representa el 100% del gasto en esa categoría. La franja verde marca el <strong>porcentaje recuperable sobre la categoría misma</strong> (no sobre el OPEX total). Las cifras absolutas son estimación basada en el 24% combustible/ingresos que Alejandro confirmó más benchmarks de la industria. Se cierran al revisar tres meses de facturación.</span>
         </div>
 
         <div class="bars">
